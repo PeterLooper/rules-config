@@ -1,12 +1,20 @@
 # Shadowrocket 规则配置
 
-这个仓库提供两份 Shadowrocket 可更新配置，适合 iOS / iPadOS 上使用。
+适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
 
-## 配置文件
+## 扫码导入
 
-### cn-direct.conf
+打开 Shadowrocket，进入「配置」，点击右上角「+」，选择「扫描二维码」。
 
-适合人在中国大陆或普通代理分流场景。
+### 国内直连，其他代理
+
+适合人在中国大陆，或普通代理分流场景。
+
+![cn-direct QR](https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fraw.githubusercontent.com%2FPeterLooper%2Frules-config%2Fmain%2Fcn-direct.conf)
+
+```text
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/cn-direct.conf
+```
 
 规则逻辑：
 
@@ -17,21 +25,21 @@
 其他全部走代理
 ```
 
-导入地址：
-
-```text
-https://raw.githubusercontent.com/PeterLooper/rules-config/main/cn-direct.conf
-```
-
 适合用途：
 
-- 国内 App / 网站不走代理
-- 海外网站走代理
-- 微信、支付宝、淘宝、京东、B 站等国内服务尽量直连
+- 微信、支付宝、淘宝、京东、B 站等国内服务直连
+- Google、YouTube、Telegram、ChatGPT 等海外服务走代理
+- 日常使用时减少国内 App 异常
 
-### back-cn.conf
+### 回国模式，其他直连
 
-适合人在海外，需要访问中国大陆网站、视频、音乐、网银、生活服务等“回国”场景。
+适合人在海外，需要访问中国大陆网站、视频、音乐、网银、生活服务等场景。
+
+![back-cn QR](https://api.qrserver.com/v1/create-qr-code/?size=260x260&margin=12&data=https%3A%2F%2Fraw.githubusercontent.com%2FPeterLooper%2Frules-config%2Fmain%2Fback-cn.conf)
+
+```text
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
+```
 
 规则逻辑：
 
@@ -43,19 +51,15 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/cn-direct.conf
 其他全部直连
 ```
 
-导入地址：
-
-```text
-https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
-```
-
 适合用途：
 
 - 海外访问国内视频、音乐、网银、政务、生活服务
 - 国内网站 / App 走回国节点
 - 国外网站保持本地直连
 
-## Shadowrocket 导入方法
+## 手动导入
+
+如果扫码无法识别，可以手动导入：
 
 1. 打开 Shadowrocket
 2. 进入「配置」
@@ -67,11 +71,11 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 ## 如何更新
 
-这两份配置文件里已经包含 `update-url`。
+两份配置文件都已经包含 `update-url`。
 
-通过 URL 导入后，可以在 Shadowrocket 的配置列表里使用「更新」功能。更新后会重新拉取 GitHub 上的最新配置。
+通过 URL 或二维码导入后，可以在 Shadowrocket 的配置列表里使用「更新」功能。更新后会重新拉取 GitHub 上的最新配置。
 
-注意：如果是通过本地文件导入，可能不会显示更新功能。建议使用上面的 Raw URL 导入。
+注意：如果是通过本地文件导入，可能不会显示更新功能。建议使用二维码或 Raw URL 导入。
 
 ## 两份配置怎么选
 
@@ -80,11 +84,17 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 人在海外，想让国内服务走回国节点、国外直连：选 back-cn.conf
 ```
 
+不建议同时启用两份配置，因为两份配置方向相反。
+
 ## 常见问题
+
+### 扫码后没有自动导入怎么办？
+
+复制二维码下面的 Raw URL，在 Shadowrocket 里选择「从 URL 导入」。
 
 ### 为什么导入后不能更新？
 
-通常是因为使用了本地文件导入。请使用 Raw URL 导入。
+通常是因为使用了本地文件导入。请使用二维码或 Raw URL 导入。
 
 ### 为什么国内网站还是没有走回国？
 
@@ -93,15 +103,6 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 ### 为什么有些国内 App 仍然异常？
 
 部分 App 会使用海外 CDN、特殊域名、私有接口或风控检测。可以在 Shadowrocket 的「最近请求」里查看命中的域名，再按需补充规则。
-
-### 可以同时启用两份配置吗？
-
-不建议。两份配置方向相反：
-
-- `cn-direct.conf` 是国内直连、其他代理
-- `back-cn.conf` 是国内代理、其他直连
-
-使用时选择其中一份即可。
 
 ## 规则来源
 
