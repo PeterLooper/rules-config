@@ -88,6 +88,19 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 不建议同时启用两份配置，因为两份配置方向相反。
 
+## 更新记录
+
+### 2026-07-17
+
+- 补充腾讯 CDN / 微信服务域名：`gtimg.com`、`qpic.cn`、`qqmail.com`、`servicewechat.com`
+- 补充腾讯云域名：`myqcloud.com`、`qcloud.com`
+- 补充今日头条 / 西瓜视频：`toutiao.com`、`ixigua.com`
+- 补充饿了么 / 滴滴：`ele.me`、`elemecdn.com`、`didi.cn`、`didiglobal.com`
+- 补充 WPS / 金山文档：`wps.cn`、`wps.com`、`kdocs.cn`、`kingsoft.com`
+- 补充飞书：`feishu.cn`、`feishu.net`
+- 补充银联：`unionpay.com`、`95516.com`
+- 同步更新 `cn-direct.conf` 和 `back-cn.conf`，并保留原有 `update-url` 与 Raw 链接不变
+
 ## 常见问题
 
 ### 扫码后没有自动导入怎么办？
