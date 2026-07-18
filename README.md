@@ -2,7 +2,7 @@
 
 适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
 
-最近更新：2026-07-17
+最近更新：2026-07-19
 
 ## 扫码导入
 
@@ -22,6 +22,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/cn-direct.conf
 
 ```text
 局域网直连
+GFW / 代理域名走代理
 中国域名直连
 中国 IP 段直连
 其他全部走代理
@@ -89,6 +90,14 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 不建议同时启用两份配置，因为两份配置方向相反。
 
 ## 更新记录
+
+### 2026-07-19
+
+- 更新 GFW/代理域名分流：在 `cn-direct.conf` 中新增远程 `proxy.txt` 规则集，并放在中国直连规则之前，避免 GFW 域名被误判为直连
+- 更新中国域名分流说明：继续引用 `direct.txt`、`apple.txt`、`icloud.txt` 作为远程中国域名/常用直连规则源
+- 更新中国 IP 分流说明：继续引用 `cncidr.txt`，并保留 `GEOIP,CN` 作为中国 IP 兜底
+- 同步更新 `cn-direct.conf` 和 `back-cn.conf` 的更新时间为 `2026-07-19`
+- 保留两份配置原有 `update-url` 不变，已通过 URL/二维码导入的 Shadowrocket 配置可继续使用「更新」功能
 
 ### 2026-07-17
 
