@@ -2,7 +2,7 @@
 
 适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
 
-最近更新：2026-07-19
+最近更新：2026-07-31
 
 ## 扫码导入
 
@@ -90,6 +90,14 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 不建议同时启用两份配置，因为两份配置方向相反。
 
 ## 更新记录
+
+### 2026-07-31
+
+- 补充国内云服务与 CDN 域名：腾讯云、阿里云、京东云、百度智能云/对象存储、火山引擎等常见域名
+- 补充国内 AI / 内容平台域名：豆包、扣子、抖音/头条图片域名、快手 App、小红书备用域名等
+- 补充国内生活服务与电商相关域名：菜鸟、顺丰、滴滴静态资源、什么值得买、拼多多图片域名等
+- 同步更新 `cn-direct.conf` 与 `back-cn.conf`，两份配置的规则方向保持不变
+- 保留远程 `proxy.txt`、`direct.txt`、`cncidr.txt` 规则源和两份配置的 `update-url`，Shadowrocket 可继续直接更新
 
 ### 2026-07-19
 
