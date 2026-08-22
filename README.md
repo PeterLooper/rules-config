@@ -2,7 +2,7 @@
 
 适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
 
-最近更新：2026-07-31
+最近更新：2026-08-22
 
 ## 扫码导入
 
@@ -90,6 +90,15 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 不建议同时启用两份配置，因为两份配置方向相反。
 
 ## 更新记录
+
+### 2026-08-22
+
+- 新增字节跳动国内 / 海外分流优先规则，避免被通用远程规则集或域名兜底规则覆盖
+- 国内字节与抖音域名：`douyin.com`、`iesdouyin.com`、`douyinpic.com`、`douyinvod.com`、`douyinstatic.com`、`bytedance.com`、`byteimg.com`、头条 / 西瓜 / 豆包 / 扣子 / 火山引擎相关域名
+- TikTok 与海外字节域名：`tiktok.com`、`tiktokv.com`、`tiktokcdn.com`、`tik-tokapi.com`、`musical.ly`、`byteoversea.com`、`bytedance.net`、`ibytedtos.com` 等
+- `cn-direct.conf`：国内字节 / 抖音直连，TikTok / 海外字节走代理
+- `back-cn.conf`：国内字节 / 抖音走回国代理，TikTok / 海外字节直连
+- 保留两份配置的 `update-url` 与二维码导入地址不变，Shadowrocket 可直接使用「更新」拉取本次规则
 
 ### 2026-07-31
 
