@@ -1,6 +1,6 @@
-# Shadowrocket 规则配置
+# Shadowrocket / Clash / Mihomo 规则配置
 
-适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
+提供两种分流方向：国内直连、其他代理；或中国流量走回国代理、其他直连。包含 Shadowrocket 配置与可用于 Clash / Mihomo 内核应用的规则覆写。
 
 最近更新：2026-08-24
 
@@ -80,9 +80,15 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 注意：如果是通过本地文件导入，可能不会显示更新功能。建议使用二维码或 Raw URL 导入。
 
-## Clash Party 使用
+## Clash / Mihomo 使用
 
-Clash Party 不能直接导入本仓库的 Shadowrocket `.conf`，请使用对应的 YAML 覆写文件。当前版本已适配你的订阅策略组「节点选择」。
+本仓库的域名规则、IP 规则和 `rule-providers` 使用 Mihomo / Clash 通用规则语法，可用于 Clash Party、Clash Verge Rev、FlClash、OpenClash 等采用 Clash / Mihomo 内核的应用。
+
+Shadowrocket `.conf` 不能直接导入这些应用。请使用客户端提供的「覆写」「混入」「合并」或同类功能，将规则添加到你的节点订阅中。
+
+### Clash Party 覆写文件
+
+以下两份是 Clash Party 专用 YAML 覆写，采用其 `+rules` 前置合并语法，并已适配当前订阅的策略组「节点选择」。
 
 ### 国内直连，其他代理
 
@@ -104,7 +110,16 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-back
 4. 在「覆写」一项选择刚导入的文件并保存
 5. 更新一次订阅，再回到首页保持「规则」模式
 
-两份覆写文件会通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的分流规则放在订阅规则之前。
+### 其他 Clash / Mihomo 应用
+
+规则逻辑和远程规则源可直接复用，但不同客户端的覆写格式不同：
+
+- 将两份 YAML 中的 `rule-providers` 合并到客户端配置的同名字段
+- 将 `+rules` 下的规则按原顺序插入订阅规则之前；不支持 `+rules` 的客户端应使用自己的前置规则/覆写功能
+- 将规则中的「节点选择」替换成你的代理策略组名称，例如 `PROXY`、`节点选择` 或 `国外代理`
+- 二选一使用：国内直连模式的末尾规则是 `MATCH,节点选择`；回国模式的末尾规则是 `MATCH,DIRECT`
+
+两份覆写均通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的规则始终位于通用规则之前。
 
 ## 两份配置怎么选
 
@@ -122,7 +137,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-back
 - 新增 Clash Party YAML 覆写：`clash-party-cn-direct.yaml` 与 `clash-party-back-cn.yaml`
 - 覆写文件复用当前订阅的「节点选择」策略组，无需修改节点订阅内容
 - 支持国内直连 / 其他代理与回国 / 其他直连两种方向，并保留字节跳动国内 / 海外、抖音、TikTok 的优先分流
-- 增加 Clash Party 的导入、绑定订阅和更新说明
+- 重写 README 的 Clash / Mihomo 说明：Clash Party 保留为应用名；明确规则本身可用于其他 Clash / Mihomo 内核应用，且说明不同客户端需要采用各自的覆写/混入语法
 
 ### 2026-08-22
 
