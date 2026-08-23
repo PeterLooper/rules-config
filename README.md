@@ -2,7 +2,7 @@
 
 适用于 iOS / iPadOS 的 Shadowrocket 分流配置。支持扫码导入，也支持 URL 手动导入。
 
-最近更新：2026-08-22
+最近更新：2026-08-24
 
 ## 扫码导入
 
@@ -80,6 +80,32 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 注意：如果是通过本地文件导入，可能不会显示更新功能。建议使用二维码或 Raw URL 导入。
 
+## Clash Party 使用
+
+Clash Party 不能直接导入本仓库的 Shadowrocket `.conf`，请使用对应的 YAML 覆写文件。当前版本已适配你的订阅策略组「节点选择」。
+
+### 国内直连，其他代理
+
+```text
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-cn-direct.yaml
+```
+
+### 回国模式，其他直连
+
+```text
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-back-cn.yaml
+```
+
+在 Clash Party 中依次操作：
+
+1. 左侧打开「覆写」
+2. 粘贴上面的 Raw URL，点击「导入」
+3. 打开订阅管理，编辑正在使用的订阅
+4. 在「覆写」一项选择刚导入的文件并保存
+5. 更新一次订阅，再回到首页保持「规则」模式
+
+两份覆写文件会通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的分流规则放在订阅规则之前。
+
 ## 两份配置怎么选
 
 ```text
@@ -90,6 +116,13 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 不建议同时启用两份配置，因为两份配置方向相反。
 
 ## 更新记录
+
+### 2026-08-24
+
+- 新增 Clash Party YAML 覆写：`clash-party-cn-direct.yaml` 与 `clash-party-back-cn.yaml`
+- 覆写文件复用当前订阅的「节点选择」策略组，无需修改节点订阅内容
+- 支持国内直连 / 其他代理与回国 / 其他直连两种方向，并保留字节跳动国内 / 海外、抖音、TikTok 的优先分流
+- 增加 Clash Party 的导入、绑定订阅和更新说明
 
 ### 2026-08-22
 
