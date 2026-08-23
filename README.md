@@ -86,8 +86,6 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 `prefer-ipv6` 保持为 `false`，表示优先使用更兼容的 IPv4；当网站或网络仅提供 IPv6 时，仍可正常通过 IPv6 连接和按规则分流。
 
-回国配置使用本地系统 DNS，避免公共 DoH 任播被调度到与本地网络不同的国家。回国分流会让中国网站经回国节点、其他网站经本地网络访问；这是该模式的正常行为，无法同时满足“单一出口检测”和“国内服务走回国节点”。
-
 ## Clash / Mihomo 使用
 
 两份 YAML 采用 Clash / Mihomo 标准的 `rule-providers` 与 `rules` 字段，可用于采用 Clash / Mihomo 内核的应用。它们是完整的分流规则段，不包含节点或订阅信息。
@@ -135,7 +133,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ### 2026-08-24
 
-- 调整 `back-cn.conf` 的 DNS：回退为仅使用本地系统 DNS，避免公共 DoH 任播被调度至新加坡、美国等与本地出口不同的国家
+- 回退 `back-cn.conf` 的后续 DNS 试验，恢复到启用 IPv6 时的多 DNS 配置；IPv6 与中国 IPv4 / IPv6 网段分流保持启用
 - 为 `clash-cn-direct.yaml` 与 `clash-back-cn.yaml` 加入 fake-ip、规则感知 DoH、DNS 劫持和 IPv6 DNS；DoH 请求指定经 `PROXY` 策略组，避免仅开启虚拟网卡时仍使用本地 DNS
 - Shadowrocket 两份配置启用 IPv6，补充本地 IPv6 网络直连规则，并将中国 IP 规则源替换为同时覆盖中国 IPv4 / IPv6 网段的 `ChinaIPs` 规则集
 - Clash / Mihomo 的中国 IP 规则源同步替换为包含 IPv4 / IPv6 的 `ChinaIPs` 规则集
