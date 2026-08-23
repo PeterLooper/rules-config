@@ -133,7 +133,6 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ### 2026-08-24
 
-- 为 `clash-cn-direct.yaml` 与 `clash-back-cn.yaml` 加入 fake-ip、规则感知 DoH、DNS 劫持和 IPv6 DNS；DoH 请求指定经 `PROXY` 策略组，避免仅开启虚拟网卡时仍使用本地 DNS
 - Shadowrocket 两份配置启用 IPv6，补充本地 IPv6 网络直连规则，并将中国 IP 规则源替换为同时覆盖中国 IPv4 / IPv6 网段的 `ChinaIPs` 规则集
 - Clash / Mihomo 的中国 IP 规则源同步替换为包含 IPv4 / IPv6 的 `ChinaIPs` 规则集
 - 将 YAML 文件统一为通用名称：`clash-cn-direct.yaml` 与 `clash-back-cn.yaml`
