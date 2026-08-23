@@ -82,44 +82,27 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 ## Clash / Mihomo 使用
 
-本仓库的域名规则、IP 规则和 `rule-providers` 使用 Mihomo / Clash 通用规则语法，可用于 Clash Party、Clash Verge Rev、FlClash、OpenClash 等采用 Clash / Mihomo 内核的应用。
+两份 YAML 采用 Clash / Mihomo 标准的 `rule-providers` 与 `rules` 字段，可用于采用 Clash / Mihomo 内核的应用。它们是完整的分流规则段，不包含节点或订阅信息。
 
-Shadowrocket `.conf` 不能直接导入这些应用。请使用客户端提供的「覆写」「混入」「合并」或同类功能，将规则添加到你的节点订阅中。
-
-### Clash Party 覆写文件
-
-以下两份是 Clash Party 专用 YAML 覆写，采用其 `+rules` 前置合并语法，并已适配当前订阅的策略组「节点选择」。
+使用前，请确保你的完整配置中有名为 `PROXY` 的代理策略组；如果实际名称不同，请将文件中的 `PROXY` 全部替换成你的策略组名。
 
 ### 国内直连，其他代理
 
 ```text
-https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-cn-direct.yaml
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-cn-direct.yaml
 ```
 
 ### 回国模式，其他直连
 
 ```text
-https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-back-cn.yaml
+https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.yaml
 ```
 
-在 Clash Party 中依次操作：
+将 YAML 中的 `rule-providers` 与 `rules` 合并到完整配置的对应字段。因为两份文件均以 `MATCH` 结束，应替换完整配置原有的 `rules`，不能追加在已有 `MATCH` 之后。使用客户端的覆写、混入或合并功能时，选择“替换规则”或同等选项。
 
-1. 左侧打开「覆写」
-2. 粘贴上面的 Raw URL，点击「导入」
-3. 打开订阅管理，编辑正在使用的订阅
-4. 在「覆写」一项选择刚导入的文件并保存
-5. 更新一次订阅，再回到首页保持「规则」模式
+二选一使用：国内直连模式的末尾规则是 `MATCH,PROXY`；回国模式的末尾规则是 `MATCH,DIRECT`。
 
-### 其他 Clash / Mihomo 应用
-
-规则逻辑和远程规则源可直接复用，但不同客户端的覆写格式不同：
-
-- 将两份 YAML 中的 `rule-providers` 合并到客户端配置的同名字段
-- 将 `+rules` 下的规则按原顺序插入订阅规则之前；不支持 `+rules` 的客户端应使用自己的前置规则/覆写功能
-- 将规则中的「节点选择」替换成你的代理策略组名称，例如 `PROXY`、`节点选择` 或 `国外代理`
-- 二选一使用：国内直连模式的末尾规则是 `MATCH,节点选择`；回国模式的末尾规则是 `MATCH,DIRECT`
-
-两份覆写均通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的规则始终位于通用规则之前。
+两份规则通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的规则始终位于通用规则之前。
 
 ## 两份配置怎么选
 
@@ -134,10 +117,10 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-party-back
 
 ### 2026-08-24
 
-- 新增 Clash Party YAML 覆写：`clash-party-cn-direct.yaml` 与 `clash-party-back-cn.yaml`
-- 覆写文件复用当前订阅的「节点选择」策略组，无需修改节点订阅内容
+- 将 YAML 文件统一为通用名称：`clash-cn-direct.yaml` 与 `clash-back-cn.yaml`
+- 改用 Clash / Mihomo 标准 `rules` 与 `rule-providers` 字段，策略组统一使用 `PROXY`
 - 支持国内直连 / 其他代理与回国 / 其他直连两种方向，并保留字节跳动国内 / 海外、抖音、TikTok 的优先分流
-- 重写 README 的 Clash / Mihomo 说明：Clash Party 保留为应用名；明确规则本身可用于其他 Clash / Mihomo 内核应用，且说明不同客户端需要采用各自的覆写/混入语法
+- README 改为通用 Clash / Mihomo 使用说明，明确策略组替换、规则替换和远程规则自动更新方式
 
 ### 2026-08-22
 
