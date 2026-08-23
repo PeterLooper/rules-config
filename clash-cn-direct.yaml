@@ -1,5 +1,12 @@
 # Clash / Mihomo rules - China direct, other traffic through PROXY
-# Before use, ensure your configuration has a proxy group named PROXY.
+# Includes a PROXY selector that collects all available proxy nodes.
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
 
 rule-providers:
   gfw:
