@@ -1,0 +1,65 @@
+# Clash / Mihomo rules - China traffic through PROXY, other traffic direct
+# Before use, ensure your configuration has a China-bound proxy group named PROXY.
+
+rule-providers:
+  cn-domain:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/direct.txt
+    path: ./ruleset/loyalsoldier-cn-domain.txt
+    interval: 86400
+  cn-ip:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Loyalsoldier/surge-rules/release/ruleset/cncidr.txt
+    path: ./ruleset/loyalsoldier-cn-ip.txt
+    interval: 86400
+
+rules:
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+
+  # ByteDance overseas / TikTok
+  - DOMAIN-SUFFIX,tiktok.com,DIRECT
+  - DOMAIN-SUFFIX,tiktokv.com,DIRECT
+  - DOMAIN-SUFFIX,tiktokcdn.com,DIRECT
+  - DOMAIN-SUFFIX,tiktokcdn-us.com,DIRECT
+  - DOMAIN-SUFFIX,tik-tokapi.com,DIRECT
+  - DOMAIN-SUFFIX,musical.ly,DIRECT
+  - DOMAIN-SUFFIX,muscdn.com,DIRECT
+  - DOMAIN-SUFFIX,byteoversea.com,DIRECT
+  - DOMAIN-SUFFIX,byteoversea.net,DIRECT
+  - DOMAIN-SUFFIX,bytedance.net,DIRECT
+  - DOMAIN-SUFFIX,ibytedtos.com,DIRECT
+
+  # ByteDance China / Douyin
+  - DOMAIN-SUFFIX,douyin.com,PROXY
+  - DOMAIN-SUFFIX,iesdouyin.com,PROXY
+  - DOMAIN-SUFFIX,douyinpic.com,PROXY
+  - DOMAIN-SUFFIX,douyinvod.com,PROXY
+  - DOMAIN-SUFFIX,douyinstatic.com,PROXY
+  - DOMAIN-SUFFIX,bytedance.com,PROXY
+  - DOMAIN-SUFFIX,byteimg.com,PROXY
+  - DOMAIN-SUFFIX,toutiao.com,PROXY
+  - DOMAIN-SUFFIX,toutiaoimg.com,PROXY
+  - DOMAIN-SUFFIX,pstatp.com,PROXY
+  - DOMAIN-SUFFIX,snssdk.com,PROXY
+  - DOMAIN-SUFFIX,ixigua.com,PROXY
+  - DOMAIN-SUFFIX,doubao.com,PROXY
+  - DOMAIN-SUFFIX,coze.cn,PROXY
+  - DOMAIN-SUFFIX,volcengine.com,PROXY
+  - DOMAIN-SUFFIX,volces.com,PROXY
+
+  - DOMAIN-SUFFIX,cn,PROXY
+  - DOMAIN-SUFFIX,中国,PROXY
+  - DOMAIN-SUFFIX,公司,PROXY
+  - DOMAIN-SUFFIX,网络,PROXY
+  - RULE-SET,cn-domain,PROXY
+  - RULE-SET,cn-ip,PROXY,no-resolve
+  - GEOIP,CN,PROXY
+  - MATCH,DIRECT
