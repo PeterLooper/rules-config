@@ -1,5 +1,12 @@
 # Clash / Mihomo rules - China traffic through PROXY, other traffic direct
-# Before use, ensure your configuration has a China-bound proxy group named PROXY.
+# Includes a PROXY selector that collects all available proxy nodes.
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    include-all: true
+    proxies:
+      - DIRECT
 
 rule-providers:
   cn-domain:
