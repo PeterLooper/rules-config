@@ -84,7 +84,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 两份 YAML 采用 Clash / Mihomo 标准的 `rule-providers` 与 `rules` 字段，可用于采用 Clash / Mihomo 内核的应用。它们是完整的分流规则段，不包含节点或订阅信息。
 
-使用前，请确保你的完整配置中有名为 `PROXY` 的代理策略组；如果实际名称不同，请将文件中的 `PROXY` 全部替换成你的策略组名。
+两份文件会自动创建名为 `PROXY` 的选择策略组，并收集订阅中的全部节点。导入或更新后，请在客户端的代理组页面为 `PROXY` 选择一个节点；回国模式应选择中国大陆出口节点。
 
 ### 国内直连，其他代理
 
@@ -98,7 +98,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-cn-direct.
 https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.yaml
 ```
 
-将 YAML 中的 `rule-providers` 与 `rules` 合并到完整配置的对应字段。因为两份文件均以 `MATCH` 结束，应替换完整配置原有的 `rules`，不能追加在已有 `MATCH` 之后。使用客户端的覆写、混入或合并功能时，选择“替换规则”或同等选项。
+将 YAML 中的 `proxy-groups`、`rule-providers` 与 `rules` 合并到完整配置的对应字段。因为两份文件均以 `MATCH` 结束，应替换完整配置原有的 `rules`，不能追加在已有 `MATCH` 之后。使用客户端的覆写、混入或合并功能时，选择“替换规则”或同等选项。
 
 二选一使用：国内直连模式的末尾规则是 `MATCH,PROXY`；回国模式的末尾规则是 `MATCH,DIRECT`。
 
@@ -118,7 +118,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 ### 2026-08-24
 
 - 将 YAML 文件统一为通用名称：`clash-cn-direct.yaml` 与 `clash-back-cn.yaml`
-- 改用 Clash / Mihomo 标准 `rules` 与 `rule-providers` 字段，策略组统一使用 `PROXY`
+- 改用 Clash / Mihomo 标准 `proxy-groups`、`rules` 与 `rule-providers` 字段，自动创建并使用 `PROXY` 策略组
 - 支持国内直连 / 其他代理与回国 / 其他直连两种方向，并保留字节跳动国内 / 海外、抖音、TikTok 的优先分流
 - README 改为通用 Clash / Mihomo 使用说明，明确策略组替换、规则替换和远程规则自动更新方式
 
