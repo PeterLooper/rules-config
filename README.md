@@ -80,6 +80,12 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/back-cn.conf
 
 注意：如果是通过本地文件导入，可能不会显示更新功能。建议使用二维码或 Raw URL 导入。
 
+## IPv6 支持
+
+两份 Shadowrocket 配置已启用 `ipv6 = true`，并新增本地 IPv6 地址、私有地址、链路本地地址和组播地址的直连规则；中国 IPv4 / IPv6 网段改为使用持续维护的 `ChinaIPs` 远程规则集。
+
+`prefer-ipv6` 保持为 `false`，表示优先使用更兼容的 IPv4；当网站或网络仅提供 IPv6 时，仍可正常通过 IPv6 连接和按规则分流。
+
 ## Clash / Mihomo 使用
 
 两份 YAML 采用 Clash / Mihomo 标准的 `rule-providers` 与 `rules` 字段，可用于采用 Clash / Mihomo 内核的应用。它们是完整的分流规则段，不包含节点或订阅信息。
@@ -102,7 +108,17 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 二选一使用：国内直连模式的末尾规则是 `MATCH,PROXY`；回国模式的末尾规则是 `MATCH,DIRECT`。
 
-两份规则通过 `rule-providers` 每 24 小时更新中国域名、中国 IP 和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的规则始终位于通用规则之前。
+两份规则通过 `rule-providers` 每 24 小时更新中国域名、中国 IPv4 / IPv6 网段和 GFW 规则源；字节跳动国内 / 海外、抖音和 TikTok 的规则始终位于通用规则之前。
+
+### DNS 与虚拟网卡
+
+两份 YAML 现已包含 `dns` 与 `tun` 配置：启用 fake-ip、规则感知 DNS、IPv6，以及将 DNS 请求劫持到内核；常规域名解析通过 Cloudflare / Google DoH 并指定走 `PROXY` 策略组。这使“全局 + 虚拟网卡”时的主要 DNS 查询不会继续使用路由器或本地运营商 DNS。
+
+导入或刷新覆写后：
+
+1. 在 `PROXY` 策略组中选择可用节点。
+2. 确认虚拟网卡已启用，然后重新加载配置或重启内核。
+3. 若浏览器仍显示旧 DNS，关闭浏览器的“安全 DNS / Secure DNS”或重启浏览器后再测试；浏览器自带 DoH 不受内核 DNS 配置控制。
 
 ## 两份配置怎么选
 
@@ -117,6 +133,9 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ### 2026-08-24
 
+- 为 `clash-cn-direct.yaml` 与 `clash-back-cn.yaml` 加入 fake-ip、规则感知 DoH、DNS 劫持和 IPv6 DNS；DoH 请求指定经 `PROXY` 策略组，避免仅开启虚拟网卡时仍使用本地 DNS
+- Shadowrocket 两份配置启用 IPv6，补充本地 IPv6 网络直连规则，并将中国 IP 规则源替换为同时覆盖中国 IPv4 / IPv6 网段的 `ChinaIPs` 规则集
+- Clash / Mihomo 的中国 IP 规则源同步替换为包含 IPv4 / IPv6 的 `ChinaIPs` 规则集
 - 将 YAML 文件统一为通用名称：`clash-cn-direct.yaml` 与 `clash-back-cn.yaml`
 - 改用 Clash / Mihomo 标准 `proxy-groups`、`rules` 与 `rule-providers` 字段，自动创建并使用 `PROXY` 策略组
 - 支持国内直连 / 其他代理与回国 / 其他直连两种方向，并保留字节跳动国内 / 海外、抖音、TikTok 的优先分流
