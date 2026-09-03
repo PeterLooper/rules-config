@@ -131,6 +131,11 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ## 更新记录
 
+### 2026-09-03
+
+- 回国模式新增优先直连例外：无忧行（JegoTrip）、微信及微信支付、Apple 服务（含 Apple ID、iCloud、App Store、推送与内容分发）不再走回国代理
+- 同步更新 `back-cn.conf` 与 `clash-back-cn.yaml`，上述例外规则位于中国域名和中国 IP 回国兜底规则之前
+
 ### 2026-08-24
 
 - Shadowrocket 两份配置启用 IPv6，补充本地 IPv6 网络直连规则，并将中国 IP 规则源替换为同时覆盖中国 IPv4 / IPv6 网段的 `ChinaIPs` 规则集
