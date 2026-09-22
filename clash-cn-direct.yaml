@@ -160,6 +160,7 @@ rules:
   - DOMAIN-SUFFIX,chainalysis.com,PROXY
   - DOMAIN-SUFFIX,cryptorank.io,PROXY
   - DOMAIN-SUFFIX,coinglass.com,PROXY
+  - DOMAIN-SUFFIX,oklink.com,PROXY
 
   # Web3 infrastructure
   - DOMAIN-SUFFIX,infura.io,PROXY
