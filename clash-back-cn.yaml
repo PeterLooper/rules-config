@@ -153,6 +153,7 @@ rules:
   - DOMAIN-SUFFIX,chainalysis.com,DIRECT
   - DOMAIN-SUFFIX,cryptorank.io,DIRECT
   - DOMAIN-SUFFIX,coinglass.com,DIRECT
+  - DOMAIN-SUFFIX,oklink.com,DIRECT
 
   # Web3 infrastructure
   - DOMAIN-SUFFIX,infura.io,DIRECT
