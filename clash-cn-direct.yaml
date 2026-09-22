@@ -60,6 +60,117 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 
+  # Non-mainland Web3 services use the proxy
+  # Exchanges
+  - DOMAIN-SUFFIX,binance.com,PROXY
+  - DOMAIN-SUFFIX,binance.us,PROXY
+  - DOMAIN-SUFFIX,bnbstatic.com,PROXY
+  - DOMAIN-SUFFIX,bybit.com,PROXY
+  - DOMAIN-SUFFIX,okx.com,PROXY
+  - DOMAIN-SUFFIX,okex.com,PROXY
+  - DOMAIN-SUFFIX,coinbase.com,PROXY
+  - DOMAIN-SUFFIX,crypto.com,PROXY
+  - DOMAIN-SUFFIX,kraken.com,PROXY
+  - DOMAIN-SUFFIX,kucoin.com,PROXY
+  - DOMAIN-SUFFIX,gate.io,PROXY
+  - DOMAIN-SUFFIX,mexc.com,PROXY
+  - DOMAIN-SUFFIX,bitget.com,PROXY
+  - DOMAIN-SUFFIX,bitfinex.com,PROXY
+  - DOMAIN-SUFFIX,bitstamp.net,PROXY
+  - DOMAIN-SUFFIX,gemini.com,PROXY
+  - DOMAIN-SUFFIX,upbit.com,PROXY
+  - DOMAIN-SUFFIX,bithumb.com,PROXY
+  - DOMAIN-SUFFIX,bitflyer.com,PROXY
+  - DOMAIN-SUFFIX,bitflyer.jp,PROXY
+  - DOMAIN-SUFFIX,htx.com,PROXY
+  - DOMAIN-SUFFIX,huobi.com,PROXY
+  - DOMAIN-SUFFIX,hyperliquid.xyz,PROXY
+  - DOMAIN-SUFFIX,dydx.exchange,PROXY
+
+  # Wallets and custody
+  - DOMAIN-SUFFIX,metamask.io,PROXY
+  - DOMAIN-SUFFIX,phantom.com,PROXY
+  - DOMAIN-SUFFIX,phantom.app,PROXY
+  - DOMAIN-SUFFIX,trustwallet.com,PROXY
+  - DOMAIN-SUFFIX,trustwalletapp.com,PROXY
+  - DOMAIN-SUFFIX,rabby.io,PROXY
+  - DOMAIN-SUFFIX,ledger.com,PROXY
+  - DOMAIN-SUFFIX,trezor.io,PROXY
+  - DOMAIN-SUFFIX,walletconnect.com,PROXY
+  - DOMAIN-SUFFIX,walletconnect.org,PROXY
+  - DOMAIN-SUFFIX,myetherwallet.com,PROXY
+  - DOMAIN-SUFFIX,exodus.com,PROXY
+  - DOMAIN-SUFFIX,safe.global,PROXY
+  - DOMAIN-SUFFIX,unisat.io,PROXY
+
+  # Public chains and DeFi
+  - DOMAIN-SUFFIX,bitcoin.org,PROXY
+  - DOMAIN-SUFFIX,ethereum.org,PROXY
+  - DOMAIN-SUFFIX,solana.com,PROXY
+  - DOMAIN-SUFFIX,arbitrum.io,PROXY
+  - DOMAIN-SUFFIX,optimism.io,PROXY
+  - DOMAIN-SUFFIX,polygon.technology,PROXY
+  - DOMAIN-SUFFIX,avax.network,PROXY
+  - DOMAIN-SUFFIX,sui.io,PROXY
+  - DOMAIN-SUFFIX,near.org,PROXY
+  - DOMAIN-SUFFIX,cosmos.network,PROXY
+  - DOMAIN-SUFFIX,ton.org,PROXY
+  - DOMAIN-SUFFIX,tron.network,PROXY
+  - DOMAIN-SUFFIX,zksync.io,PROXY
+  - DOMAIN-SUFFIX,uniswap.org,PROXY
+  - DOMAIN-SUFFIX,1inch.io,PROXY
+  - DOMAIN-SUFFIX,pancakeswap.finance,PROXY
+  - DOMAIN-SUFFIX,aave.com,PROXY
+  - DOMAIN-SUFFIX,compound.finance,PROXY
+  - DOMAIN-SUFFIX,opensea.io,PROXY
+  - DOMAIN-SUFFIX,magiceden.io,PROXY
+  - DOMAIN-SUFFIX,raydium.io,PROXY
+  - DOMAIN-SUFFIX,jup.ag,PROXY
+  - DOMAIN-SUFFIX,lido.fi,PROXY
+  - DOMAIN-SUFFIX,sushi.com,PROXY
+  - DOMAIN-SUFFIX,curve.fi,PROXY
+
+  # Market and on-chain data
+  - DOMAIN-SUFFIX,coingecko.com,PROXY
+  - DOMAIN-SUFFIX,coinmarketcap.com,PROXY
+  - DOMAIN-SUFFIX,defillama.com,PROXY
+  - DOMAIN-SUFFIX,dune.com,PROXY
+  - DOMAIN-SUFFIX,duneanalytics.com,PROXY
+  - DOMAIN-SUFFIX,nansen.ai,PROXY
+  - DOMAIN-SUFFIX,glassnode.com,PROXY
+  - DOMAIN-SUFFIX,cryptoquant.com,PROXY
+  - DOMAIN-SUFFIX,tokenterminal.com,PROXY
+  - DOMAIN-SUFFIX,intotheblock.com,PROXY
+  - DOMAIN-SUFFIX,arkhamintelligence.com,PROXY
+  - DOMAIN-SUFFIX,arkm.com,PROXY
+  - DOMAIN-SUFFIX,artemisanalytics.com,PROXY
+  - DOMAIN-SUFFIX,flipsidecrypto.xyz,PROXY
+  - DOMAIN-SUFFIX,coinmetrics.io,PROXY
+  - DOMAIN-SUFFIX,cryptocompare.com,PROXY
+  - DOMAIN-SUFFIX,messari.io,PROXY
+  - DOMAIN-SUFFIX,dexscreener.com,PROXY
+  - DOMAIN-SUFFIX,dextools.io,PROXY
+  - DOMAIN-SUFFIX,geckoterminal.com,PROXY
+  - DOMAIN-SUFFIX,etherscan.io,PROXY
+  - DOMAIN-SUFFIX,etherscan.com,PROXY
+  - DOMAIN-SUFFIX,bscscan.com,PROXY
+  - DOMAIN-SUFFIX,polygonscan.com,PROXY
+  - DOMAIN-SUFFIX,solscan.io,PROXY
+  - DOMAIN-SUFFIX,tronscan.org,PROXY
+  - DOMAIN-SUFFIX,chainalysis.com,PROXY
+  - DOMAIN-SUFFIX,cryptorank.io,PROXY
+  - DOMAIN-SUFFIX,coinglass.com,PROXY
+
+  # Web3 infrastructure
+  - DOMAIN-SUFFIX,infura.io,PROXY
+  - DOMAIN-SUFFIX,alchemy.com,PROXY
+  - DOMAIN-SUFFIX,quicknode.com,PROXY
+  - DOMAIN-SUFFIX,ankr.com,PROXY
+  - DOMAIN-SUFFIX,chainstack.com,PROXY
+  - DOMAIN-SUFFIX,helius.dev,PROXY
+  - DOMAIN-SUFFIX,ipfs.io,PROXY
+  - DOMAIN-SUFFIX,thegraph.com,PROXY
+
   # ByteDance overseas / TikTok
   - DOMAIN-SUFFIX,tiktok.com,PROXY
   - DOMAIN-SUFFIX,tiktokv.com,PROXY
