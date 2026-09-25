@@ -62,7 +62,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 ## 规则范围
 
 - 中国域名和中国 IP 规则来自持续维护的远程规则集。
-- 中国 IP 使用 `ChinaIPs` 规则集，覆盖中国 IPv4 与 IPv6 网段，并由 `GEOIP,CN` 补充兜底。
+- 中国 IPv4 使用 `ChinaIPs`，另用 `Loyalsoldier/geoip` 的双栈规则集补充 IPv4/IPv6 网段；`GEOIP,CN` 继续兜底。规则源可能遗漏或误判，不能保证所有中国 IP 都被识别。
 - Shadowrocket 已启用 IPv6；`prefer-ipv6 = false` 仅表示优先 IPv4，不会禁用 IPv6 连接或分流。
 - Clash / Mihomo 的远程 `rule-providers` 默认每 24 小时更新一次。
 
@@ -97,6 +97,11 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ## 更新记录
 
+### 2026-09-26
+
+- Shadowrocket 与 Clash / Mihomo 两种模式均补充动态维护的中国 IPv6 网段规则；保留原有 IPv4 规则与 GeoIP 兜底。
+- 更正说明：原 `ChinaIPs` 规则集只包含 IPv4，启用 IPv6 不等于已覆盖中国 IPv6 网段。
+
 ### 2026-09-03
 
 - 回国模式新增无忧行、微信及微信支付、Apple 服务的优先直连例外。
@@ -104,7 +109,7 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 
 ### 2026-08-24
 
-- 中国 IP 规则源升级为同时覆盖 IPv4 / IPv6 的 `ChinaIPs`。
+- 引入 `ChinaIPs` 作为中国 IPv4 规则源，并启用 IPv6；中国 IPv6 网段当时主要依赖 GeoIP 兜底。
 - 新增通用 Clash / Mihomo 覆写文件。
 
 ### 2026-08-22
