@@ -52,6 +52,13 @@ rule-providers:
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaIPs/ChinaIPs.list
     path: ./ruleset/blackmatrix7-cn-ip.txt
     interval: 86400
+  cn-ip-dual-stack:
+    type: http
+    behavior: classical
+    format: text
+    url: https://raw.githubusercontent.com/Loyalsoldier/geoip/release/surge/cn.txt
+    path: ./ruleset/loyalsoldier-cn-ip-dual-stack.txt
+    interval: 86400
 
 rules:
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
@@ -206,5 +213,6 @@ rules:
   - RULE-SET,gfw,PROXY
   - RULE-SET,cn-domain,DIRECT
   - RULE-SET,cn-ip,DIRECT,no-resolve
+  - RULE-SET,cn-ip-dual-stack,DIRECT,no-resolve
   - GEOIP,CN,DIRECT
   - MATCH,PROXY
