@@ -23,7 +23,7 @@
 https://raw.githubusercontent.com/PeterLooper/rules-config/main/cn-direct.conf
 ```
 
-分流顺序：局域网直连 -> GFW / 代理域名走代理 -> 中国域名和中国 IP 直连 -> 其余走代理。
+分流顺序：局域网直连 -> Apple Intelligence 等专项规则 -> GFW / 代理域名走代理 -> 中国域名和中国 IP 直连 -> 其余走代理。
 
 ### 回国模式，其他直连
 
@@ -66,6 +66,27 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 - Shadowrocket 已启用 IPv6；`prefer-ipv6 = false` 仅表示优先 IPv4，不会禁用 IPv6 连接或分流。
 - Clash / Mihomo 的远程 `rule-providers` 默认每 24 小时更新一次。
 
+## Apple Intelligence
+
+Apple Intelligence 的专用中继域名优先于普通 Apple 服务、中国域名和 IP 规则匹配，四份配置保持一致：
+
+| 模式 | 路径 | 节点要求 |
+| --- | --- | --- |
+| `cn-direct` | `PROXY` | 选择中国大陆以外的节点 |
+| `back-cn` | `DIRECT` | 使用所在地网络，适用于人在中国大陆以外 |
+
+覆盖 Apple Intelligence 中继与 Private Cloud Compute 已列出的入口，包括 `apple-relay.apple.com`、Cloudflare / Fastly 中继及 `cp4.cloudflare.com`。普通 Apple 服务沿用既有规则。
+
+请使用「规则」模式。回国模式的直连不等于固定海外节点；如果本地网络在中国大陆，直连就不是海外出口。规则只控制网络路径，不改变 Apple Intelligence 的设备、账号或地区可用条件，也不保证覆盖所有第三方 AI 集成请求。
+
+端点参考：[Apple 企业网络使用清单](https://support.apple.com/en-us/101555)。
+
+## Shadowrocket 失败处理
+
+两份 `.conf` 配置设置 `udp-policy-not-supported-behaviour = REJECT`，当所选代理不支持 UDP 时拒绝对应代理 UDP 请求，不回退为直连；设置 `dns-direct-fallback-proxy = false`，禁止直连 DNS 失败后转用代理解析。失败时相关请求可能不可用，这两项不是 DNS 泄漏检测通过的保证。
+
+这两个字段仅用于 Shadowrocket，不写入 Clash / Mihomo YAML。
+
 ## 中国 AI 产品
 
 DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆、讯飞星火和硅基流动的已核实产品域名及部分 API 地址，优先于通用域名与 IP 规则匹配：`cn-direct` 直连，`back-cn` 走回国代理。这里只匹配列出的域名及其子域名；第三方登录、搜索、云存储或 CDN 请求仍可能按其他规则分流。
@@ -103,6 +124,8 @@ DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆
 
 ### 2026-10-04
 
+- 增加 Apple Intelligence 专用优先规则：国内直连模式走代理，回国模式直连；四份配置同步覆盖中继和 Private Cloud Compute 入口。
+- Shadowrocket 明确代理 UDP 不支持时拒绝请求，并关闭直连 DNS 失败后的代理回退。
 - 两种方向的 Shadowrocket 与 Clash / Mihomo 规则同步补充中国 AI 产品及 API 域名；豆包、扣子和火山引擎沿用已有规则。
 - AI 专项规则置于通用 GFW、中国域名及 IP 规则之前，不改变微信、Apple、Web3 等既有优先规则。
 
