@@ -66,6 +66,10 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 - Shadowrocket 已启用 IPv6；`prefer-ipv6 = false` 仅表示优先 IPv4，不会禁用 IPv6 连接或分流。
 - Clash / Mihomo 的远程 `rule-providers` 默认每 24 小时更新一次。
 
+## 中国 AI 产品
+
+DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆、讯飞星火和硅基流动的已核实产品域名及部分 API 地址，优先于通用域名与 IP 规则匹配：`cn-direct` 直连，`back-cn` 走回国代理。这里只匹配列出的域名及其子域名；第三方登录、搜索、云存储或 CDN 请求仍可能按其他规则分流。
+
 ## 回国模式直连例外
 
 `back-cn` 配置会优先直连以下服务，避免它们被中国流量回国规则接管：
@@ -96,6 +100,11 @@ https://raw.githubusercontent.com/PeterLooper/rules-config/main/clash-back-cn.ya
 分流配置下，不同服务可能使用不同的出口；浏览器的安全 DNS 也可能绕开客户端 DNS 设置。请先确认客户端处于「规则」模式，再检查 DNS 覆写和浏览器安全 DNS。
 
 ## 更新记录
+
+### 2026-10-04
+
+- 两种方向的 Shadowrocket 与 Clash / Mihomo 规则同步补充中国 AI 产品及 API 域名；豆包、扣子和火山引擎沿用已有规则。
+- AI 专项规则置于通用 GFW、中国域名及 IP 规则之前，不改变微信、Apple、Web3 等既有优先规则。
 
 ### 2026-09-26
 
