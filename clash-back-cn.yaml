@@ -60,6 +60,14 @@ rules:
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 
+  # Apple Intelligence takes priority over general Apple rules
+  - DOMAIN-SUFFIX,apple-relay.apple.com,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.akamaized.net,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.cloudflare.com,DIRECT
+  - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,DIRECT
+  - DOMAIN,cp4.cloudflare.com,DIRECT
+
   # Non-mainland Web3 services stay direct
   # Exchanges
   - DOMAIN-SUFFIX,binance.com,DIRECT
