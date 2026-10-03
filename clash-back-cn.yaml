@@ -232,6 +232,23 @@ rules:
   - DOMAIN-SUFFIX,coze.cn,PROXY
   - DOMAIN-SUFFIX,volcengine.com,PROXY
   - DOMAIN-SUFFIX,volces.com,PROXY
+  # China AI products and API endpoints (Doubao / Coze / Volcengine above)
+  - DOMAIN-SUFFIX,deepseek.com,PROXY
+  - DOMAIN-SUFFIX,kimi.com,PROXY
+  - DOMAIN-SUFFIX,moonshot.cn,PROXY
+  - DOMAIN-SUFFIX,qianwen.com,PROXY
+  - DOMAIN-SUFFIX,tongyi.aliyun.com,PROXY
+  - DOMAIN-SUFFIX,dashscope.aliyuncs.com,PROXY
+  - DOMAIN-SUFFIX,yuanbao.tencent.com,PROXY
+  - DOMAIN-SUFFIX,chatglm.cn,PROXY
+  - DOMAIN-SUFFIX,bigmodel.cn,PROXY
+  - DOMAIN-SUFFIX,zhipuai.cn,PROXY
+  - DOMAIN-SUFFIX,ernie.baidu.com,PROXY
+  - DOMAIN-SUFFIX,yiyan.baidu.com,PROXY
+  - DOMAIN-SUFFIX,qianfan.baidubce.com,PROXY
+  - DOMAIN-SUFFIX,spark.xfyun.cn,PROXY
+  - DOMAIN-SUFFIX,xinghuo.xfyun.cn,PROXY
+  - DOMAIN-SUFFIX,siliconflow.cn,PROXY
 
   - DOMAIN-SUFFIX,cn,PROXY
   - DOMAIN-SUFFIX,中国,PROXY
