@@ -68,6 +68,86 @@ rules:
   - DOMAIN-SUFFIX,apple-relay.fastly-edge.com,DIRECT
   - DOMAIN,cp4.cloudflare.com,DIRECT
 
+  # Overseas AI applications and dedicated API endpoints
+  - DOMAIN-SUFFIX,openai.com,DIRECT
+  - DOMAIN-SUFFIX,chatgpt.com,DIRECT
+  - DOMAIN-SUFFIX,oaistatic.com,DIRECT
+  - DOMAIN-SUFFIX,oaiusercontent.com,DIRECT
+  - DOMAIN-SUFFIX,anthropic.com,DIRECT
+  - DOMAIN-SUFFIX,claude.ai,DIRECT
+  - DOMAIN-SUFFIX,perplexity.ai,DIRECT
+  - DOMAIN-SUFFIX,grok.com,DIRECT
+  - DOMAIN-SUFFIX,x.ai,DIRECT
+  - DOMAIN-SUFFIX,mistral.ai,DIRECT
+  - DOMAIN-SUFFIX,cohere.com,DIRECT
+  - DOMAIN-SUFFIX,poe.com,DIRECT
+  - DOMAIN-SUFFIX,huggingface.co,DIRECT
+  - DOMAIN-SUFFIX,openrouter.ai,DIRECT
+  - DOMAIN-SUFFIX,groq.com,DIRECT
+  - DOMAIN-SUFFIX,together.ai,DIRECT
+  - DOMAIN-SUFFIX,replicate.com,DIRECT
+  - DOMAIN-SUFFIX,midjourney.com,DIRECT
+  - DOMAIN-SUFFIX,runwayml.com,DIRECT
+  - DOMAIN-SUFFIX,runway.com,DIRECT
+  - DOMAIN-SUFFIX,elevenlabs.io,DIRECT
+  - DOMAIN-SUFFIX,cursor.com,DIRECT
+  - DOMAIN-SUFFIX,windsurf.com,DIRECT
+  - DOMAIN-SUFFIX,devin.ai,DIRECT
+  - DOMAIN-SUFFIX,suno.com,DIRECT
+  - DOMAIN-SUFFIX,udio.com,DIRECT
+  - DOMAIN-SUFFIX,ideogram.ai,DIRECT
+  - DOMAIN-SUFFIX,leonardo.ai,DIRECT
+  - DOMAIN-SUFFIX,pika.art,DIRECT
+  - DOMAIN-SUFFIX,luma.ai,DIRECT
+  - DOMAIN-SUFFIX,replit.com,DIRECT
+  - DOMAIN-SUFFIX,lovable.dev,DIRECT
+  - DOMAIN-SUFFIX,v0.app,DIRECT
+  - DOMAIN-SUFFIX,bolt.new,DIRECT
+  - DOMAIN-SUFFIX,copilot.com,DIRECT
+  - DOMAIN-SUFFIX,copilot.microsoft.com,DIRECT
+  - DOMAIN-SUFFIX,copilot.cloud.microsoft,DIRECT
+  - DOMAIN-SUFFIX,character.ai,DIRECT
+  - DOMAIN-SUFFIX,you.com,DIRECT
+  - DOMAIN-SUFFIX,jasper.ai,DIRECT
+  - DOMAIN-SUFFIX,writesonic.com,DIRECT
+  - DOMAIN-SUFFIX,gamma.app,DIRECT
+  - DOMAIN-SUFFIX,synthesia.io,DIRECT
+  - DOMAIN-SUFFIX,heygen.com,DIRECT
+  - DOMAIN-SUFFIX,stability.ai,DIRECT
+  - DOMAIN-SUFFIX,firefly.adobe.com,DIRECT
+  - DOMAIN-SUFFIX,fal.ai,DIRECT
+  - DOMAIN-SUFFIX,cerebras.ai,DIRECT
+  - DOMAIN-SUFFIX,ai.google.dev,DIRECT
+  - DOMAIN-SUFFIX,aistudio.google.com,DIRECT
+  - DOMAIN-SUFFIX,gemini.google.com,DIRECT
+  - DOMAIN-SUFFIX,bard.google.com,DIRECT
+  - DOMAIN-SUFFIX,deepmind.google,DIRECT
+  - DOMAIN-SUFFIX,deepmind.com,DIRECT
+  - DOMAIN-SUFFIX,generativeai.google,DIRECT
+  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,DIRECT
+  - DOMAIN-SUFFIX,proactivebackend-pa.googleapis.com,DIRECT
+  - DOMAIN-SUFFIX,makersuite.google.com,DIRECT
+  - DOMAIN,chat.openai.com.cdn.cloudflare.net,DIRECT
+  - DOMAIN,openai-api.arkoselabs.com,DIRECT
+  - DOMAIN,alkalimakersuite-pa.clients6.google.com,DIRECT
+
+  # Additional overseas exchanges
+  - DOMAIN-SUFFIX,gate.com,DIRECT
+  - DOMAIN-SUFFIX,bitmart.com,DIRECT
+  - DOMAIN-SUFFIX,coinex.com,DIRECT
+  - DOMAIN-SUFFIX,bingx.com,DIRECT
+  - DOMAIN-SUFFIX,bitmex.com,DIRECT
+  - DOMAIN-SUFFIX,deribit.com,DIRECT
+  - DOMAIN-SUFFIX,bitunix.com,DIRECT
+  - DOMAIN-SUFFIX,lbank.com,DIRECT
+  - DOMAIN-SUFFIX,coincheck.com,DIRECT
+  - DOMAIN-SUFFIX,bitbank.cc,DIRECT
+  - DOMAIN-SUFFIX,poloniex.com,DIRECT
+  - DOMAIN-SUFFIX,bitkub.com,DIRECT
+  - DOMAIN-SUFFIX,binance.th,DIRECT
+  - DOMAIN-SUFFIX,orbixtrade.com,DIRECT
+  - DOMAIN-SUFFIX,bitazza.com,DIRECT
+
   # Non-mainland Web3 services stay direct
   # Exchanges
   - DOMAIN-SUFFIX,binance.com,DIRECT
