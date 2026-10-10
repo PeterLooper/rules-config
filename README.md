@@ -87,6 +87,16 @@ Apple Intelligence 的专用中继域名优先于普通 Apple 服务、中国域
 
 这两个字段仅用于 Shadowrocket，不写入 Clash / Mihomo YAML。
 
+## 海外 AI 与数字货币交易平台
+
+海外 AI 和交易平台的专项域名规则优先于通用中国域名与 IP 规则：`cn-direct` 走 `PROXY`，`back-cn` 走 `DIRECT`。海外 AI 平台上提供的中国模型也按平台域名分流；直接访问中国 AI 产品则沿用中国 AI 规则。
+
+覆盖 ChatGPT / OpenAI、Claude、Gemini / AI Studio、Copilot、Grok、Perplexity、Mistral、Cohere、Poe，以及模型 API、AI 编程、图像、视频、音频和内容创作平台。交易平台在既有 Binance、OKX、Bybit、Coinbase、Kraken 等基础上，补充 Gate 新域名、BitMart、CoinEx、BingX、BitMEX、Deribit、Bitunix、LBank、Coincheck、bitbank 和 Poloniex。
+
+本次新增 61 条海外 AI 域名规则和 15 条交易平台域名规则，四份配置同步。额外覆盖 Bitkub（`bitkub.com`）、Binance TH（`binance.th`）、Orbix（`orbixtrade.com`）和 Bitazza（`bitazza.com`），包含这些域名下的 API、登录和其他子域名；保留 Binance、Bybit、OKX/OKEx 的既有专项规则。只匹配列出的域名，不能保证穷尽全部平台、第三方登录、共享 CDN 和新增接口。不将共享云 ASN、通用登录/CDN 域名或宽泛关键词整段接管。专项规则随本仓库配置更新，现有中国域名/IP 远程规则集继续按原机制更新。
+
+核对来源为各平台官方主页，以及 [OpenAI](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket/OpenAI)、[Claude](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket/Claude)、[Gemini](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket/Gemini) 清单中的专用端点；未整体引用这些清单。
+
 ## 中国 AI 产品
 
 DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆、讯飞星火和硅基流动的已核实产品域名及部分 API 地址，优先于通用域名与 IP 规则匹配：`cn-direct` 直连，`back-cn` 走回国代理。这里只匹配列出的域名及其子域名；第三方登录、搜索、云存储或 CDN 请求仍可能按其他规则分流。
@@ -121,6 +131,13 @@ DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆
 分流配置下，不同服务可能使用不同的出口；浏览器的安全 DNS 也可能绕开客户端 DNS 设置。请先确认客户端处于「规则」模式，再检查 DNS 覆写和浏览器安全 DNS。
 
 ## 更新记录
+
+### 2026-10-11
+
+- 补充 Bitkub、Binance TH、Orbix 和 Bitazza；保留币安、Bybit、欧易的既有域名规则，四份配置策略一致。
+- 四份配置同步补充海外 AI 应用、专用 API 和数字货币交易平台域名，回国模式直连，国内直连模式走代理。
+- 专项规则优先于通用中国域名和 IP 规则；保留中国 AI、微信、Apple Intelligence 和既有 Web3 分流。
+- 采用精确域名与域名后缀匹配，避免共享云网段和宽泛关键词影响无关服务。
 
 ### 2026-10-04
 
