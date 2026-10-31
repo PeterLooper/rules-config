@@ -54,6 +54,10 @@ rule-providers:
     interval: 86400
 
 rules:
+  # JiuXin IM images and messaging
+  - DOMAIN,minio.htpshyh.com,DIRECT
+  - DOMAIN,im.htpshyh.com,DIRECT
+
   - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
