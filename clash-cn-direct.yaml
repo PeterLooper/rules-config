@@ -61,6 +61,10 @@ rule-providers:
     interval: 86400
 
 rules:
+  # Apple Maps China endpoints
+  - DOMAIN,gspe19-cn-ssl.ls.apple.com,DIRECT
+  - DOMAIN,gspe11-2-cn-ssl.ls.apple.com,DIRECT
+
   # JiuXin IM images and messaging
   - DOMAIN,minio.htpshyh.com,DIRECT
   - DOMAIN,im.htpshyh.com,DIRECT
