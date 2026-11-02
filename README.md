@@ -132,6 +132,11 @@ DeepSeek、豆包/扣子、Kimi、千问、腾讯元宝、智谱、文心/千帆
 
 ## 更新记录
 
+### 2026-11-02
+
+- 国内直连模式为 `gspe19-cn-ssl.ls.apple.com` 和 `gspe11-2-cn-ssl.ls.apple.com` 增加精确直连规则，改善 Apple 地图及「查找」底图加载。
+- 同步 Shadowrocket 与 Clash / Mihomo 配置；保留 Apple Intelligence 的海外代理规则，不改变其他 Apple 服务策略。
+
 ### 2026-10-11
 
 - 补充 Bitkub、Binance TH、Orbix 和 Bitazza；保留币安、Bybit、欧易的既有域名规则，四份配置策略一致。
